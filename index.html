@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Pagamento via PIX</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #f8f9fa;
+      color: #333;
+      max-width: 600px;
+      margin: auto;
+    }
+    textarea {
+      width: 100%;
+      height: 120px;
+      padding: 10px;
+      font-size: 14px;
+      resize: none;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .pix-container {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="pix-container">
+    <h2>💳 Pagamento via PIX</h2>
+    <p><strong>Chave Aleatória:</strong><br>
+    d78f8f0c-f6db-49bb-9c25-123456789abc</p>
+
+    <p><strong>Código PIX Copia e Cola:</strong></p>
+    <textarea id="pixCode" readonly>00020126580014br.gov.bcb.pix0136d78f8f0c-f6db-49bb-9c25-123456789abc520400005303986540459.905802BR5920Jonathas Lima6009SAO PAULO62070503***630451F5</textarea>
+
+    <button onclick="copyPIX()">📎 Copiar Código PIX</button>
+    <p id="copiado" style="color:green; display:none;">✅ Copiado com sucesso!</p>
+  </div>
+
+  <script>
+    function copyPIX() {
+      const textArea = document.getElementById("pixCode");
+      textArea.select();
+      textArea.setSelectionRange(0, 99999);
+      document.execCommand("copy");
+
+      const msg = document.getElementById("copiado");
+      msg.style.display = "block";
+      setTimeout(() => msg.style.display = "none", 3000);
+    }
+  </script>
+
+</body>
+</html>
